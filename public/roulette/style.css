@@ -1,0 +1,564 @@
+html, body {
+	font-family: arial;
+	cursor: default;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	background-color: #016D29;
+}
+
+#container {
+	display: flex;
+	justify-content: center;
+	min-height: 510px;
+	padding: 20px;
+	color: #fff;
+}
+
+/* notification */
+#notification {
+	position: absolute;
+	width: 500px;
+	height: 318px;
+	background-color: #ad0205;
+	z-index: 10;
+	border: 8px solid #d3b201;
+	border-radius: 12px;
+	transition: 1s;
+}
+
+.nSpan {
+	display: block;
+	position: relative;
+	top: 105px;
+	font-size: 53px;
+	text-align: center;
+}
+
+.nBtn {
+	display: block;
+	position: relative;
+	top: 116px;
+	left: 25%;
+	width: 45%;
+	padding: 10px;
+	font-size: 32px;
+	text-align: center;
+	background-color: green;
+	border-radius: 15px;
+	box-shadow: 3px 4px rgb(0 0 0 / 25%);
+	cursor: pointer;
+	transition: .5s;
+}
+
+.nBtn:active {
+	top: 118px;
+	left: calc(25% + 2px);
+	box-shadow: 1px 2px rgb(0 0 0 / 25%);
+}
+
+.nsWin {
+	position: absolute;
+	left: 4px;
+}
+
+.nsWinBlock {
+	display: inline-block;
+	font-size: 21px;
+	border-right: 1px solid;
+	border-left: 1px solid;
+	padding-left: 40px;
+	padding-right: 40px;
+}
+
+/* betting table */
+#betting_board {
+	width: 625px;
+	height: auto;
+	border: 1px solid;
+}
+
+.bbtop {
+	margin-left: 2px;
+}
+
+.bbtoptwo {
+	width: calc(50% - 8px);
+	border: 1px solid;
+	display: inline-block;
+	padding: 8px 4px;
+	margin-left: -2px;
+	text-align: center;
+	font-size: 16px;
+	font-weight: bold;
+}
+
+.number_board {
+	margin-left: 1px;
+}
+
+.number_block {
+	width: 29px;
+	border: 1px solid;
+	text-align: center;
+	display: inline-block;
+	margin: 0 -0.2px;
+	padding: 20px 0px;
+}
+
+.nbn {
+	font-size: 13px;
+	font-weight: bold;
+	letter-spacing: 1px;
+	transform: rotate(-90deg);
+	-webkit-transform: rotate(0deg);
+	-moz-transform: rotate(-90deg);
+	-ms-transform: rotate(-90deg);
+	-o-transform: rotate(-90deg);
+}
+
+.bo3_board, .oto_board {
+	width: 625px;
+	margin-left: 1px;
+}
+
+.bo3_block, .oto_block {
+	border: 1px solid;
+	display: inline-block;
+	padding: 8px 4px;
+	width: 196px;
+	margin-left: -2px;
+	text-align: center;
+	font-weight: bold;
+	font-size: 16px;
+}
+
+.oto_block {
+	width: 145px;
+	margin-left: -2px;
+}
+
+.number_0 {
+	position: absolute;
+	border: 2px solid;
+	margin-left: -46px;
+	margin-top: -1px;
+	padding: 78px 12px;
+	border-bottom-left-radius: 100%;
+	border-top-left-radius: 100%;
+}
+
+.tt1_block {
+	border: 2px solid;
+	width: 50px;
+	position: absolute;
+	margin-left: 622px;
+	padding: 17px 0px;
+	margin-top: -63px;
+}
+
+.winning_lines {
+	position: absolute;
+	margin-top: -100px;
+	width: 700px;
+	height: 0;
+}
+
+.wlttb {
+	position: relative;
+	width: 100%;
+	height: 8px;
+	margin-left: -6px;
+	top: 195px;
+}
+
+#wlttb_top {
+	position: absolute;
+	margin-top: -65px;
+	margin-left: 8px;
+}
+
+#wlttb_2, #wlttb_3 {
+	margin-top: 55px;
+}
+
+.wlrtl {
+	position: relative;
+	display: inline-block;
+	width: 8px;
+	height: 190px;
+	top: -2px;
+	margin-left: 24px;
+}
+
+.wlcb {
+	position: absolute;
+	width: 560px;
+	height: 30px;
+	top: 180px;
+	margin-left: 10px;
+}
+
+#wlcb_2 {
+	top: 243px;
+}
+
+.cbbb {
+	width: 15px;
+	height: 15px;
+	position: relative;
+	display: inline-block;
+	margin-left: 16px;
+	margin-top: 7px;
+	cursor: pointer;
+}
+
+.ttbbetblock {
+	width: 14px;
+	height: 8px;
+	position: relative;
+	display: inline-block;
+	margin-left: 17px;
+	top: -2px;
+	cursor: pointer;
+	z-index: 3;
+}
+
+.rtlbb1, .rtlbb2, .rtlbb3 {
+	height: 31px;
+	margin-top: 16px;
+	width: 8px;
+}
+
+.rtlbb2, .rtlbb3 {
+	margin-top: 29px;
+}
+
+.spinBtn {
+	position: fixed;
+	bottom: 50px;
+	right: 50px;
+	font-size: 19px;
+	cursor: pointer;
+	background-color: #ffec00;
+	padding: 13px 19px;
+	border-radius: 100%;
+	color: #000;
+	font-weight: bold;
+	z-index: 9999;
+}
+
+.redNum {
+	background-color: #E0080B;
+}
+
+.blackNum {
+	background-color: #000;
+}
+
+.chipDeck, .bankContainer {
+	position: absolute;
+	display: none;
+	margin-left: -478px;
+	margin-top: -74px;
+	width: 310px;
+	height: 39px;
+	padding: 3px 0;
+	border: 1px solid;
+	border-radius: 10px;
+	box-shadow: inset -2px -4px rgb(0 0 0 / 20%);
+}
+
+.bankContainer {
+	margin-top: -21px;
+}
+
+.cdChip {
+	width: 27px;
+	height: 27px;
+	background-color: #fff;
+	border: 5px solid;
+	border-radius: 100%;
+	display: inline-block;
+	margin-left: 9px;
+	color: #000;
+	cursor: pointer;
+}
+
+.cdChipSpan {
+	display: inherit;
+	position: relative;
+	top: 5px;
+	width: 26px;
+	font-weight: bold;
+	font-size: 14px;
+	text-align: center;
+}
+
+.cdChipActive {
+	position: relative;
+	top: -4px;
+	box-shadow: 0 4px rgb(0 0 0 / 20%);
+}
+
+.clearBet {
+	border-color: red;
+	background-color: red;
+	color: #fff;
+	margin-left: 22px;
+}
+
+.clearBet .cdChipSpan {
+	margin-left: -2px;
+}
+
+.bank, .bet {
+	display: inline-block;
+	width: calc(50% - 28px);
+	background-color: #000;
+	font-size: 18px;
+	margin-left: 7px;
+	padding: 5px;
+	border: 4px solid silver;
+	border-radius: 7px;
+	text-align: right;
+}
+
+.pnBlock {
+	position: absolute;
+	border: 1px solid;
+	width: 625px;
+	height: 45px;
+	margin-top: 10px;
+	margin-left: -1px;
+}
+
+#pnContent {
+	border: 4px solid #d5b714;
+	width: 608px;
+	height: 31px;
+	position: relative;
+	display: block;
+	margin-left: 4px;
+	margin-top: 3px;
+	background-color: #fff;
+	color: #000;
+	overflow: hidden;
+}
+
+.pnRed, .pnBlack, .pnGreen {
+	position: relative;
+	display: inline;
+	padding: 10px;
+	font-size: 19px;
+	top: 5px;
+}
+
+.pnRed { color: red; }
+.pnBlack { color: black; }
+.pnGreen { color: green; }
+
+/* wheel */
+@keyframes wheelRotate {
+	from { transform: rotate(0deg); }
+	to { transform: rotate(359deg); }
+}
+@keyframes ballRotate {
+	from { transform: rotate(0deg); }
+	to { transform: rotate(-359deg); }
+}
+
+.wheel {
+	height: 499px;
+	width: 499px;
+	position: relative;
+	left: 10px;
+	transition: transform 2s ease-in-out;
+}
+
+.ballTrack {
+	width: 339px;
+	height: 331px;
+	position: absolute;
+	left: 76px;
+	top: 80px;
+	border-radius: 100%;
+	z-index: 2;
+}
+
+.ball {
+	background-color: #fff;
+	width: 16px;
+	height: 16px;
+	border-radius: 100%;
+	position: relative;
+	left: 162px;
+	top: -8px;
+}
+
+.turret {
+	border-radius: 100%;
+	background: radial-gradient(circle at 30% 30%, #f3c620, #1a1608);
+	width: 72px;
+	height: 72px;
+	position: absolute;
+	top: 213px;
+	left: 214px;
+	z-index: 1;
+}
+
+.turretHandle {
+	background: radial-gradient(circle at 44%, #f3c620, #6a570f);
+	width: 139px;
+	height: 22px;
+	position: absolute;
+	left: 181px;
+	top: 237px;
+}
+
+.thendOne, .thendTwo {
+	border-radius: 100%;
+	background: radial-gradient(circle at 30% 30%, #f3c620, #1a1608);
+	width: 40px;
+	height: 40px;
+	position: absolute;
+}
+
+.thendOne { top: -10px; left: -32px; }
+.thendTwo { top: -10px; left: 133px; }
+
+.outerRim {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 464px;
+	height: 464px;
+	border-radius: 100%;
+	box-shadow: 0px 0px 13px rgba(0,0,0,0.5);
+	border: 16px solid #F3c620;
+}
+
+.block {
+	transition: all 1s;
+	position: absolute;
+	width: 464px;
+	height: 464px;
+	border-radius: 100%;
+	clip: rect(0px, 232px, 464px, 0px);
+}
+
+.sect {
+	position: absolute;
+	top: 16px;
+	left: 16px;
+	width: 464px;
+	height: 464px;
+	border-radius: 100%;
+	clip: rect(0px, 464px, 464px, 232px);
+}
+
+.double, .single {
+	position: absolute;
+	z-index: 1;
+	color: #fff;
+	font-size: 13px;
+	transform: rotate(1.5deg);
+}
+
+.double {
+	left: 236px;
+	margin-top: 4px;
+}
+
+.single {
+	left: 240px;
+	margin-top: 4px;
+}
+
+.pockets {
+	position: absolute;
+	top: 59px;
+	left: 59px;
+	width: 376px;
+	height: 376px;
+	background-color: #000;
+	border-radius: 100%;
+	opacity: .5;
+}
+
+.pocketsRim {
+	position: absolute;
+	top: 54px;
+	left: 54px;
+	width: 376px;
+	height: 376px;
+	border-radius: 100%;
+	border: 5px solid silver;
+}
+
+.cone {
+	position: absolute;
+	top: 99px;
+	left: 98px;
+	height: 288px;
+	width: 288px;
+	border: 5px solid #9f9a9a;
+	border-radius: 100%;
+	background: radial-gradient(circle at 160px 160px, #892c10, #000);
+}
+
+/* chip */
+.chip {
+	width: 21px;
+	height: 21px;
+	background-color: #fff;
+	border: 3px solid;
+	border-radius: 100%;
+	position: absolute;
+}
+
+.chipSpan {
+	color: #000;
+	font-weight: bold;
+	font-size: 11px;
+	position: relative;
+	display: block;
+	text-align: center;
+	top: 4px;
+}
+
+.gold { border-color: gold; }
+.red { border-color: red; }
+.orange { border-color: orange; }
+.blue { border-color: blue; }
+
+.tt1_block .chip { margin-left: 12px; margin-top: -18px; }
+.number_block .chip { margin-left: 2px; margin-top: -18px; }
+.wlrtl .chip { margin-left: -9px; margin-top: 9px; }
+.cbbb .chip { margin-left: -4px; margin-top: -5px; }
+.ttbbetblock .chip { margin-left: -7px; margin-top: -8px; }
+#wlttb_top .chip { margin-left: -5px; margin-top: -8px; }
+.bbtoptwo .chip { margin-left: 80px; margin-top: -20px; }
+.number_0 .chip { margin-left: -8px; margin-top: -18px; }
+.bo3_block .chip { margin-left: 65px; margin-top: -22px; }
+.oto_block .chip { margin-left: 45px; margin-top: -22px; }
+
+.winning_number {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	font-size: 74px;
+	font-weight: bold;
+	color: white;
+	border-radius: 50%;
+	z-index: 2;
+	display: none;
+}
+
+.win_red { background-color: red; }
+.win_black { background-color: black; }
+.win_green { background-color: green; }
