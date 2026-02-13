@@ -6,11 +6,13 @@ let bet = [];
 let numbersBet = [];
 let previousNumbers = [];
 
-// Red numbers for 0-59
-let numRed = [1, 3, 5, 7, 9, 12, 14, 16, 18, 19, 21, 23, 25, 27, 30, 32, 34, 36, 37, 39, 41, 43, 45, 48, 50, 52, 54, 55, 57, 59];
+// Red numbers for 0-59 (odd numbers are red, even are black, 0 is green)
+// This ensures perfect red-black alternation on the wheel
+let numRed = [1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43, 45, 47, 49, 51, 53, 55, 57, 59];
 
 // Wheel number order (60 numbers, 0-59)
-let wheelnumbersAC = [0, 32, 15, 19, 4, 21, 2, 25, 17, 34, 6, 27, 13, 36, 11, 30, 8, 23, 10, 5, 24, 16, 33, 1, 20, 14, 31, 9, 22, 18, 29, 7, 28, 12, 35, 3, 26, 37, 52, 39, 44, 55, 38, 57, 40, 48, 42, 59, 46, 50, 43, 54, 41, 56, 47, 45, 53, 49, 58, 51];
+// Arranged so colors alternate: green(0), red, black, red, black, ...
+let wheelnumbersAC = [0, 7, 26, 35, 8, 19, 42, 51, 20, 3, 54, 41, 12, 23, 38, 55, 4, 9, 50, 37, 16, 15, 46, 49, 2, 1, 36, 43, 22, 27, 56, 57, 10, 11, 44, 39, 28, 21, 58, 53, 6, 5, 40, 45, 24, 25, 52, 59, 14, 13, 48, 47, 30, 29, 34, 33, 18, 17, 32, 31];
 
 let container = document.createElement('div');
 container.setAttribute('id', 'container');
@@ -72,7 +74,7 @@ function buildWheel(){
 	wheel.style.cssText = 'display: none;';
 	wheel.append(outerRim);
 
-	let numbers = [0, 32, 15, 19, 4, 21, 2, 25, 17, 34, 6, 27, 13, 36, 11, 30, 8, 23, 10, 5, 24, 16, 33, 1, 20, 14, 31, 9, 22, 18, 29, 7, 28, 12, 35, 3, 26, 37, 52, 39, 44, 55, 38, 57, 40, 48, 42, 59, 46, 50, 43, 54, 41, 56, 47, 45, 53, 49, 58, 51];
+	let numbers = [0, 7, 26, 35, 8, 19, 42, 51, 20, 3, 54, 41, 12, 23, 38, 55, 4, 9, 50, 37, 16, 15, 46, 49, 2, 1, 36, 43, 22, 27, 56, 57, 10, 11, 44, 39, 28, 21, 58, 53, 6, 5, 40, 45, 24, 25, 52, 59, 14, 13, 48, 47, 30, 29, 34, 33, 18, 17, 32, 31];
 	let sectorAngle = 360 / 60; // 6 degrees
 
 	for(var i = 0; i < numbers.length; i++){
@@ -698,7 +700,7 @@ function spinWheel(winningSpin){
 	var degree;
 	for(var i = 0; i < wheelnumbersAC.length; i++){
 		if(wheelnumbersAC[i] == winningSpin){
-			degree = (i * 6) + 362; // 6 degrees per sector (360/60)
+			degree = 720 - (i * 6); // correct: ball rotates counter-clockwise to land on sector i
 		}
 	}
 	wheel.style.cssText = 'animation: wheelRotate 5s linear infinite;';
