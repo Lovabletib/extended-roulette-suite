@@ -700,10 +700,13 @@ function spinWheel(winningSpin){
 	var degree;
 	for(var i = 0; i < wheelnumbersAC.length; i++){
 		if(wheelnumbersAC[i] == winningSpin){
-			degree = 720 - (i * 6); // correct: ball rotates counter-clockwise to land on sector i
+			// 717 = 720 - 3 (center of sector). Ball at top rotates CCW to land on sector i.
+			degree = 717 - (i * 6);
 		}
 	}
-	wheel.style.cssText = 'animation: wheelRotate 5s linear infinite;';
+	
+	// Remove transition to prevent drift when animation is removed later
+	wheel.style.cssText = 'animation: wheelRotate 5s linear infinite; transition: none;';
 	ballTrack.style.cssText = 'animation: ballRotate 1s linear infinite;';
 
 	setTimeout(function(){
@@ -721,7 +724,10 @@ function spinWheel(winningSpin){
 		ballTrack.style.cssText = 'transform: rotate(-' + degree + 'deg);';
 	}, 9000);
 	setTimeout(function(){
-		wheel.style.cssText = '';
+		// CRITICAL: use transition:none so wheel snaps to 0° instantly
+		// Without this, the wheel CSS transition causes it to slowly rotate back,
+		// making the ball appear on the wrong sector
+		wheel.style.cssText = 'transition: none;';
 		if(window._ballStopStyle) window._ballStopStyle.remove();
 	}, 10000);
 }
